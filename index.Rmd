@@ -4,7 +4,7 @@ title: "My Website"
 
 Hello, Website!
 
-## Resultados de la PC2 
+## Resultados de la PC2 MA460
 
 ```{r,echo=FALSE}
 MA460_3 %>% ggplot(mapping = aes(x=Turno,y = freq, fill = Condición))+
@@ -67,6 +67,76 @@ Prom_auto %>% ggplot(mapping = aes(x = Hicieron, y = Prom_dieron))+
        subtitle = "MA460 - Ciclo 20-02",
        caption = "Fuente: ---")+
   geom_text(aes(y = Prom_dieron,label=round(Prom_dieron,1)), 
+            vjust = -0.5,size=4, col="red")+
+  #theme_minimal()    
+  theme_classic()
+```
+
+## Resultados de la PC2 MA461
+
+```{r,echo=FALSE}
+MA461_3_inf %>% ggplot(mapping = aes(x=Turno_inf,y = freq_inf, fill = Condición_inf))+
+  geom_bar(stat = "identity", position = "dodge")+
+  labs(title = "Distribución de alumnos según turno y condición",
+       x = "Turnos de la PC2",
+       y = "Número de alumos",
+       subtitle = "MA461 - Ciclo 20-02",
+       caption = "Fuente: ---") +
+  geom_text(aes(y = freq_inf,label = freq_inf),
+            position = position_dodge(width = 0.9),
+            vjust = -0.5,size=4, col="black")+
+  theme_classic()
+```
+
+```{r,echo=FALSE}
+DF_prom_PC2_inf %>% ggplot(mapping = aes(x = D_turno_inf, y = D_prom_PC2_inf))+
+  geom_bar(stat = "identity",fill="blue")+
+  labs(title = "Nota promedio de la PC2 por turno",
+       x = "Turno",
+       y = "Nota promedio de la PC2",
+       subtitle = "MA461 - Ciclo 20-02",
+       caption = "Fuente: ---")+
+  geom_text(aes(y = D_prom_PC2_inf,label=round(D_prom_PC2_inf,1)),
+            vjust = -0.5,size=4, col="blue")+
+  #theme_minimal()    
+  theme_classic()
+
+```
+
+```{r,echo=FALSE}
+ggplot(cajas1_inf, mapping = aes(x=Turno,y=PC2,fill=Turno))+
+  geom_boxplot()+
+  labs(title = "Notas de la PC2 para ambos turnos",
+       x = "Turnos de la PC2",
+       y = "Nota de la PC2",
+       subtitle = "MA461 - Ciclo 20-02",
+       caption = "Fuente: ---")
+```
+
+```{r,echo=FALSE}
+Auto_ev_inf %>% ggplot(mapping = aes(x = Hicieron_inf, y = frec1_inf))+
+  geom_bar(stat = "identity",fill="red")+
+  labs(title = "Distribución de alumnos según participación en la autoevaluación de la PC2",
+       x = "Hicieron la Auto-evaluación",
+       y = "Número de alumnos",
+       subtitle = "MA461 - Ciclo 20-02",
+       caption = "Fuente: ---")+
+  geom_text(aes(y = frec1_inf,label=round(frec1_inf,1)), 
+            vjust = -0.5,size=4, col="red")+
+  #theme_minimal()    
+  theme_classic()
+
+```
+
+```{r,echo=FALSE}
+Prom_auto_inf %>% ggplot(mapping = aes(x = Hicieron_inf, y = Prom_dieron_inf))+
+  geom_bar(stat = "identity",fill="red")+
+  labs(title = "Promedio de la PC2 según participación en la autoevaluación de la PC2",
+       x = "Hicieron la Auto-evaluación",
+       y = "Promedio de la PC2",
+       subtitle = "MA461 - Ciclo 20-02",
+       caption = "Fuente: ---")+
+  geom_text(aes(y = Prom_dieron_inf,label=round(Prom_dieron_inf,1)), 
             vjust = -0.5,size=4, col="red")+
   #theme_minimal()    
   theme_classic()
